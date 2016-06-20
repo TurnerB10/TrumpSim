@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Donald Trump Sim</title>
+			<script src='UITrumpSim.js'></script>
+			<script src='padTrumpSim.js'></script>
+			<script src='entityTrumpSim.js'></script>
+			<script src='spriteTrumpSim.js'></script>
+			<script src='pickTrumpSim.js'></script>
+			<script src='levelTrumpSim.js'></script>
+			<script src='TrumpSimOfficial.js'></script>
+		<style>
+			body {
+				background-image: url(Bo.jpg);
+			}
+			#canvas {
+				background-image: url(whitehouse.jpeg);
+				background-size: 100%, 100%;
+				display: block;
+				margin: 10px auto;
+			}
+			h1.serif {
+				font-size: 50px;
+				text-align: center;
+				color: blue;
+				font-family: "Times New Roman", Times, serif;
+				font-style: oblique;
+			}
+			h1.serif2 {
+				font-size: 40px;
+				text-align: center;
+				color: magenta;
+				font-family: "Times New Roman", Times, serif;
+				font-style: oblique;
+			}
+		</style>
+	</head>
+	<body onload = 'init();'>
+		<h1 class='serif'>Welcome To The Donald Trump Simulator 2016!</h1>
+		<canvas id='canvas'></canvas>
+	</body>
+</html>
