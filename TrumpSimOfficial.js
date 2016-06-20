@@ -39,7 +39,7 @@ var currentPlatform;
 var target;
 var timestamp = Date.now();
 var tries = 3;
-var tryColor = 'green';
+var tryColor = 'lime';
 var timer = 10;
 
 var ACCEL = 100;
@@ -440,7 +440,7 @@ function updateCanvas() {
 	
 	
 	if(tries === 3) {
-		tryColor = 'green';
+		tryColor = 'lime';
 	} else if(tries === 2) {
 		tryColor = 'yellow';
 	} else if(tries === 1){
