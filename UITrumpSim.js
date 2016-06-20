@@ -69,22 +69,22 @@ function loadcodeRedUI() {
 
 function loadcodeGreenUI() {
 	ctx.font = 'bold 80px Serif';
-	ctx.fillStyle = 'green';
+	ctx.fillStyle = 'lime';
 	ctx.fillText('America Is Great Again!', 90, 70);
 			
 	ctx.font = 'bold 50px Serif';
-	ctx.fillStyle = 'green';
+	ctx.fillStyle = 'lime';
 	ctx.fillText("Your Score:", 375, 310);
 			
 	ctx.font = 'bold 50px Serif';
-	ctx.fillStyle = 'green';
+	ctx.fillStyle = 'lime';
 	ctx.fillText(pad(score, SCORE_DIGITS), 405, 360);
 			
 	ctx.font = 'bold 50px Serif';
-	ctx.fillStyle = 'green';
+	ctx.fillStyle = 'lime';
 	ctx.fillText("Journey For Trump's relection?", 170, 430);
 			
 	ctx.font = 'bold 50px Serif';
-	ctx.fillStyle = 'green';
+	ctx.fillStyle = 'lime';
 	ctx.fillText(Math.ceil(timer), 500, 480);
 }
