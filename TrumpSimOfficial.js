@@ -35,6 +35,7 @@ var elecitonx = 0;
 var electionPoint = 1;
 var platforms = [];
 var startingBlocks = [];
+var currentPlatform;
 var target;
 var timestamp = Date.now();
 var tries = 3;
@@ -51,9 +52,9 @@ var DROP_FACTOR = 3;
 var GRAVITY = 400;
 var MAX_DELTA = .03;
 var EDGE_CREEP = 50;
-var LETHAL_VELOCITY = 100;
+var LETHAL_VELOCITY = 1;
 var SCORE_DIGITS = 8;
-var LEVEL_CHANGE = 1;
+var LEVEL_CHANGE = 5;
 
 var deathtoamerica = false;
 var americaisgreatagain = false;
@@ -79,7 +80,7 @@ function init() {
 		platforms.push(new entity(460, 390, 50, 50));
 		platforms.push(new entity(650, 520, 50, 50));
 */	
-		
+		//starting block
 		startingBlocks.push(new entity(0, 300, 50, 50));
 
 		target = new entity(0, 0, 40, 1)
@@ -154,21 +155,24 @@ function moveTarget(exception) {
 		}
 	} else if(exception == true) {
 		while(true) {
-			var platform = specialpick(platforms);
-	
-			target.setMidX(platform.getMidX());
-			target.setMidY(platform.getTop() - platform.halfHeight);
+			var platform = pick(platforms);
+			
+			if(platform == currentPlatform) {
+				moveTarget(true);
+			} else {
+				target.setMidX(platform.getMidX());
+				target.setMidY(platform.getTop() - platform.halfHeight);
 		
-			var success = true;
-			for(var p=0; p<platforms.length; p++) {
-				platform = platforms[p];
-				if(collideRect(target, platform)) {
-					success = false;
-					break;
+				var success = true;
+				for(var p=0; p<platforms.length; p++) {
+					platform = platforms[p];
+					if(collideRect(target, platform)) {
+						success = false;
+						break;
+					}
 				}
+				if(success) break;
 			}
-		
-			if(success) break;
 		}
 	}
 }
@@ -281,6 +285,7 @@ function handleCollision() {
 					} else {	
 						if(player.vy < 0) player.vy = 0;
 						player.setBottom(platform.getTop());
+						currentPlatform = platform;
 						if(Math.abs(player.vx) < EDGE_CREEP) {
 							var x = player.getMidX();
 							if(x < platform.getLeft() && !inputs.right) {
